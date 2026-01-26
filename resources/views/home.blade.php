@@ -13,7 +13,7 @@
             Lorem Ipsum Generator
         </h2>
 
-        {{ fake()->paragraph() }}
+        <livewire:live-generate />
     </main>
     @include('common.footer')
     @livewireScripts

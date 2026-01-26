@@ -7,12 +7,18 @@ use Illuminate\Http\Request;
 class LoremController extends Controller
 {
     private $request;
+    private $output;
 
     function __construct() {
 
     }
 
     public function showHome() {
-        return view('home');
+        $output = fake()->sentence();
+
+
+        return view('home', [
+            'output' => $output
+        ]);
     }
 }
