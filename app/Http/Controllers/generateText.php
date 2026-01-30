@@ -6,12 +6,36 @@ use Illuminate\Http\Request;
 
 class generateText extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return fake()->sentence();
+    protected $data;
+    protected $error;
+
+    public function __construct() {
+        define('DEFAULT_SIZE', 10);
+    }
+
+    public function index($type, $size = DEFAULT_SIZE) {
+        if ($type == 'para') {
+            $data = fake()->paragraph($size);
+            return [
+                'type' => $type,
+                'size' => $size,
+                'response' => $data
+            ];
+        }
+
+        if ($type == 'line') {
+            $data = fake()->sentence($size);
+            return [
+                'type' => $type,
+                'size' => $size,
+                'response' => $data
+            ];
+        }
+
+        $error = 'No Such Parameters exist';
+        return [
+            'error' => $error
+        ];
     }
 
     /**

@@ -20,18 +20,27 @@ new class extends Component
         ]);
     }
 
-    public function changeNoWord() {
-        $this->noOfWord = 100;
+    public function incNoWord() {
+        // $this->noOfWord = 100;
+        $this->noOfWord++;
     }
 
+    public function decNoWord() {
+        // $this->noOfWord = 100;
+        $this->noOfWord--;
+    }
 };
 ?>
 
 <div>
+    <h3>Sentence Generate</h3>
     <button wire:click="display">Generate</button>
-    <input id="noOfWord" type="number" name="noOfWord" value="{{$noOfWord}}">
-    <button wire:click="changeNoWord">Submit</button>
+    <div id="noOfWord" type="number" name="noOfWord">{{$noOfWord}}</div>
+    <button wire:click="incNoWord">Increase</button>
+    <button wire:click="decNoWord">Decrease</button>
+    <div>Output:</div>
     <p style="padding: 1rem 0;">{{ $output }}</p>
+    <h3>Sentence Generate</h3>
     @error('output')
     <div style="color: red;">{{ $message }}</div>
 @enderror

@@ -8,9 +8,10 @@ class LoremController extends Controller
 {
     private $request;
     private $output;
+    private $DEFAULT_SIZE;
 
     function __construct() {
-
+        $this->DEFAULT_SIZE = 5;
     }
 
     public function showHome() {
@@ -19,6 +20,12 @@ class LoremController extends Controller
 
         return view('home', [
             'output' => $output
+        ]);
+    }
+
+    public function withJS() {
+        return view('withJs', [
+            'size' => $this->DEFAULT_SIZE
         ]);
     }
 }
