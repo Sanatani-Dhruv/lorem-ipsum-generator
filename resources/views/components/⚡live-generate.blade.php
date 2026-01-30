@@ -5,13 +5,23 @@ use Livewire\Component;
 new class extends Component
 {
     public $output;
+    public $noOfWord;
+
+    public function __construct() {
+        $this->output = "Default Value";
+        $this->noOfWord = 15;
+    }
 
     public function display() {
-        $output = fake()->sentence();
-        dd($this->output);
+        $this->output = fake()->sentence($this->noOfWord);
+        // dd(fake()->sentence());
         return view('components.⚡live-generate', [
             'output' => $this->output
         ]);
+    }
+
+    public function changeNoWord() {
+        $this->noOfWord = 100;
     }
 
 };
@@ -19,7 +29,9 @@ new class extends Component
 
 <div>
     <button wire:click="display">Generate</button>
-    <div wire:model="output"></div>
+    <input id="noOfWord" type="number" name="noOfWord" value="{{$noOfWord}}">
+    <button wire:click="changeNoWord">Submit</button>
+    <p style="padding: 1rem 0;">{{ $output }}</p>
     @error('output')
     <div style="color: red;">{{ $message }}</div>
 @enderror
