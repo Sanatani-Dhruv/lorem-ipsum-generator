@@ -14,6 +14,9 @@ Route::get('/api/{type}/{size}', [generateText::class, 'index']);
 
 Route::get('/api/{type}', [generateText::class, 'index']);
 
+Route::get('/contact', function() {
+    return view('contact');
+});
 // Route::get('/api/{type}/{size}', function($type, $size) {
 //     return [
 //         'type' => $type,
