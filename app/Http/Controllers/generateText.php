@@ -16,6 +16,13 @@ class generateText extends Controller
     public function index($type, $size = DEFAULT_SIZE) {
         if ($type == 'para') {
             $data = fake()->paragraph($size);
+
+            if ($size > 1000) {
+                $error = "Size Requested exceeds limits of server";
+                return [
+                    'response' => $error,
+                ];
+            }
             return [
                 'type' => $type,
                 'size' => $size,
@@ -36,6 +43,10 @@ class generateText extends Controller
         return [
             'error' => $error
         ];
+    }
+
+    public function provideUsage() {
+        return view('api.usage');
     }
 
     /**

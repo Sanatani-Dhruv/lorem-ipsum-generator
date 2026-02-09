@@ -8,11 +8,15 @@ Route::get('/', [LoremController::class, 'showHome']);
 
 Route::get('/js', [LoremController::class, 'withJs']);
 
-Route::get('/api', [generateText::class, 'sentence']);
+Route::get('/api', [generateText::class, 'provideUsage']);
 
 Route::get('/api/{type}/{size}', [generateText::class, 'index']);
 
 Route::get('/api/{type}', [generateText::class, 'index']);
+
+Route::get('/about', function() {
+    return "About Page";
+});
 
 Route::get('/contact', function() {
     return view('contact');

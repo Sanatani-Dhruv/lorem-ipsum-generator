@@ -18,9 +18,11 @@
             <option value="line">Sentence</option>
         </select>
         <input id='inputBox' type="number" value="{{ $size }}" min='0' max='100000' onkeypress="">
+        <input id='hiddenInput' type="hidden" value="" min='0' max='100000' onkeypress="">
         <button id='btn' type="submit">Fetch</button>
         <p>Output:</p>
         <p id='output'></p>
+        <button id="copy">Copy</button>
     </main>
     @include('common.footer')
     <script src="/scripts/withJs.js"></script>

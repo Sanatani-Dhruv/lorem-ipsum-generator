@@ -9,7 +9,7 @@
     @include('common.header')
     <main>
         <h2 class="view-title">
-            Lorem Ipsum Generator
+            Contact Me
         </h2>
         <div class="contact-links">
             <span class="contact-link">
