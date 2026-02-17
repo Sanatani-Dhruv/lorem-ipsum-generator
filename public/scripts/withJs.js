@@ -4,24 +4,28 @@ inputBox = document.getElementById('inputBox');
 hiddenOutputBox = document.getElementById('hiddenInput');
 selectType = document.getElementById('selectType');
 copyBtn = document.getElementById('copy');
+loading = document.getElementById('loading');
 xhr = new XMLHttpRequest();
 
 btn.addEventListener('click', () => {
     btn.disabled = true;
+    loading.style.display = 'flex';
     xhr.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             // box.innerHTML = this.responseText;
             responseJson = JSON.parse(xhr.responseText);
             box.innerHTML = responseJson.response;
             btn.disabled = false;
+            loading.style.display = 'none';
             // console.log(responseJson);
         }
     }
-    size = inputBox.value;
+    size = inputBox.value;loading
     if (selectType.value == 'default') {
         // console.log('Invalid Type');
         // return false;
         btn.disabled = false;
+        loading.style.display = 'none';
         return;
     } else {
         type = selectType.value;

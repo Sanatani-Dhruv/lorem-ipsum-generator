@@ -113,3 +113,18 @@ a:hover {
 		color: black;
 	}
 }
+
+#loading {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	font-size: 1.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-weight: 800;
+	background-color: rgba(85,85,85,0.52);
+	display: none;
+}

@@ -7,6 +7,7 @@
 </head>
 <body>
     @include('common.header')
+    <div id="loading">Loading...</div>
     <main>
         <h2 class="view-title">
             Lorem Ipsum Generator
